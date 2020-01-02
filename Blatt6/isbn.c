@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// ./isbn 1234567890 3680087837
+
 int checkIsbn(char* c) {
   int sum = 0;
   int idx = 10;
@@ -12,16 +14,15 @@ int checkIsbn(char* c) {
   return sum % 11;
 }
 
-int main(void) {
-  char arr[11];
-  printf("Geben Sie die ISBN ein: \n");
-  scanf("%s", arr);
+int main(int argc, char** argv) {
+  for (int i = 1; i < argc; i++) {
+    int valid = checkIsbn(argv[i]);
 
-  int valid = checkIsbn(arr);
-
-  if (valid == 0) {
-    printf("ISBN %s ist gültig\n",arr);
-  } else {
-    printf("ISBN %s ist ungueltig\n", arr);
+    if (valid == 0) {
+      printf("ISBN %s ist gültig\n",argv[i]);
+    } else {
+      printf("ISBN %s ist ungueltig\n", argv[i]);
+    }
   }
+  return 0;
 }
