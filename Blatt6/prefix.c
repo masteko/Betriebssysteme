@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 char* repeat(char* text) {
   int len = strlen(text);
